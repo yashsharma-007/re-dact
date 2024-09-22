@@ -1,0 +1,278 @@
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #e6ecf3, #f2f5f9);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Header and Logo */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    animation: slideInFromLeft 0.5s ease-in-out;
+    position: relative;
+}
+
+.logo-container {
+    position: absolute;
+    left: 20px;
+}
+
+.logo {
+    width: 600px;
+    height: auto;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #283c5e;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.vit-logo-container {
+    position: absolute;
+    right: 20px;
+}
+
+.vit-logo {
+    width: 210px;
+    height: auto;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* File Result Container */
+.file-result-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.uploaded-file, .processed-file {
+    width: 48%;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.uploaded-file img, .processed-file img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+h2 {
+    font-size: 20px;
+    color: #283c5e;
+}
+
+/* Download Button */
+.download-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.download-btn, .btn-back {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background-color: #3f72af;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(63, 114, 175, 0.5);
+    justify-content: center;
+}
+
+.download-btn:hover, .btn-back:hover {
+    background-color: #34618c;
+    transform: scale(1.03);
+}
+
+/* Flex Alignment for Go Back Button */
+.btn-back {
+    margin-top: 20px;
+    display: inline-block;
+}
+
+/* Form Styling */
+.container {
+    flex: 1;
+    width: 70%;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 1.5s ease-in-out;
+    transition: all 0.3s ease;
+}
+
+.container:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.redaction-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Form Group */
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.checkbox-group {
+    justify-content: space-between;
+    width: 100%;
+}
+
+.input-label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #283c5e;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.file-input {
+    border: 1px solid #ced4da;
+    padding: 8px 12px;
+    border-radius: 5px;
+    width: 65%;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.file-input:focus {
+    border-color: #3f72af;
+}
+
+/* Range and Slider */
+.range-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 65%;
+}
+
+.range-input {
+    width: 100%;
+    accent-color: #3f72af;
+}
+
+.slider-value {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Checkboxes */
+.checkbox-input {
+    width: 18px;
+    height: 18px;
+    accent-color: #3f72af;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #3f72af;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(63, 114, 175, 0.5);
+}
+
+.submit-btn:hover {
+    background-color: #34618c;
+    transform: scale(1.03);
+}
+
+/* Footer Styling */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 -8px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+    animation: fadeIn 2s ease-in-out;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .file-input, .range-wrapper {
+        width: 100%;
+    }
+
+    .file-result-container {
+        flex-direction: column;
+    }
+
+    .uploaded-file, .processed-file {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
