@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Processing Result</h1>
+
+        <div class="file-result-container">
+            <!-- Left: Uploaded File -->
+            <div class="uploaded-file">
+                <h2>Uploaded File:</h2>
+                {% if original_file %}
+                    {% if original_file.endswith('.txt') %}
+                        <!-- Display original text file content -->
+                        <h3>Uploaded Text:</h3>
+                        <pre>{{ original_text[:500] }}...</pre>  <!-- Limit the preview to 500 characters -->
+                    {% elif original_file.endswith('.png') or original_file.endswith('.jpg') or original_file.endswith('.jpeg') %}
+                        <!-- Display uploaded image -->
+                        <h3>Uploaded Image:</h3>
+                        <img src="{{ url_for('static', filename='uploads/' + original_file) }}" alt="Uploaded Image" style="max-width: 100%; height: auto;">
+                    {% else %}
+                        <p>No preview available for this file type: {{ original_file }}</p>
+                    {% endif %}
+                {% else %}
+                    <p>No file uploaded.</p>
+                {% endif %}
+            </div>
+
+            <!-- Right: Processed File -->
+            <div class="processed-file">
+                <h2>Processed File:</h2>
+                {% if redacted_text %}
+                    <!-- Display redacted text -->
+                    <h3>Redacted Text:</h3>
+                    <pre>{{ redacted_text }}</pre>
+                    <a href="{{ url_for('download_file', filename=file_path) }}" class="download-btn">
+                        <i class="fas fa-download"></i> Download Redacted Text File
+                    </a>
+                {% elif image_name %}
+                    <!-- Display processed image -->
+                    <h3>Processed Image:</h3>
+                    <img src="{{ url_for('static', filename='uploads/' + image_name) }}" alt="Processed Image" style="max-width: 100%; height: auto;">
+                    <a href="{{ url_for('download_file', filename='static/uploads/' + image_name) }}" class="download-btn">
+                        <i class="fas fa-download"></i> Download Processed Image
+                    </a>
+                {% elif docx_file_path %}
+                    <h3>Redacted DOCX File:</h3>
+                    <a href="{{ url_for('download_file', filename=docx_file_path) }}" class="download-btn">
+                        <i class="fas fa-download"></i> Download Redacted DOCX File
+                    </a>
+                {% elif pdf_file_path %}
+                    <h3>Redacted PDF File:</h3>
+                    <a href="{{ url_for('download_file', filename=pdf_file_path) }}" class="download-btn">
+                        <i class="fas fa-download"></i> Download Redacted PDF File
+                    </a>
+                {% else %}
+                    <p>No redacted content available.</p>
+                {% endif %}
+            </div>
+        </div>
+        <br>
+        <a href="{{ url_for('index') }}" class="btn-back">
+            <i class="fas fa-arrow-left"></i> Go Back
+        </a>
+    </div>
+</body>
+</html>
